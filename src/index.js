@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
+import App, { loader as rootLoader } from "./App";
+import { SignUp } from "./routes/SignUp";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 
@@ -9,7 +10,13 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    children: [],
+    loader: rootLoader,
+    children: [
+      {
+        path: "/sign-up",
+        element: <SignUp />,
+      },
+    ],
   },
 ]);
 
