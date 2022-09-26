@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Nav } from "./components/Nav";
+import { Sidebar } from "./components/Sidebar";
 import { Outlet, useLoaderData } from "react-router-dom";
 import { posts } from "./posts";
 
@@ -14,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <Nav />
+      <Sidebar posts={getPosts} />
       <Outlet />
     </div>
   );
