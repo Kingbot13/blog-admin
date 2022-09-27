@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App, { loader as rootLoader } from "./App";
 import { SignUp } from "./routes/SignUp";
+import { PostForm } from "./routes/PostForm";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: "/sign-up",
         element: <SignUp />,
+      },
+      {
+        path: "/create-post",
+        element: <PostForm />,
       },
     ],
   },

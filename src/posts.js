@@ -3,7 +3,9 @@ export const posts = (() => {
   // get posts
   const getPosts = async () => {
     const results = await fetch(`${server}/api/posts`);
-    return results;
+    const data = results.json();
+    return data;
   };
-  return { getPosts };
+
+  return { getPosts, server };
 })();
