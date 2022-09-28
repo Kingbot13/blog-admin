@@ -12,5 +12,19 @@ export const posts = (() => {
     }
   };
 
-  return { getPosts, server };
+  const createUser = async () => {
+    try {
+      const form = document.getElementById("sign-up-form");
+      const formData = new FormData(form);
+      console.log(formData);
+      const res = await fetch(`${server}/api/sign-in`, {
+        method: "post",
+        body: formData,
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  return { getPosts, server, createUser };
 })();

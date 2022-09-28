@@ -1,23 +1,37 @@
 import React from "react";
-import { Form } from "react-router-dom";
+import { Form, useActionData } from "react-router-dom";
 import { posts } from "../posts";
+
+export async function action() {
+  await posts.createUser();
+}
 
 export const SignUp = () => {
   return (
-    <Form method="post" action={`${posts.server}/api/sign-in`}>
+    <Form method="post" id="sign-up-form">
       <label htmlFor="username">
-        <input type="email" name="username" id="username" />
+        Email:
+        <input type="email" name="username" id="username" required />
       </label>
       <label htmlFor="password">
-        <input type="email" name="password" id="password" />
+        Password:
+        <input type="password" name="password" id="password" required />
       </label>
       <label htmlFor="confirmPassword">
-        <input type="password" name="confirmPassword" id="confirmPassword" />
+        Confirm Password:
+        <input
+          type="password"
+          name="confirmPassword"
+          id="confirmPassword"
+          required
+        />
       </label>
       <label htmlFor="firstName">
+        First Name:
         <input type="text" name="firstName" id="firstName" />
       </label>
       <label htmlFor="lastName">
+        Last Name:
         <input type="text" name="lastName" id="lastName" />
       </label>
       <button>Submit</button>
