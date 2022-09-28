@@ -7,7 +7,6 @@ import { posts } from "./posts";
 
 export async function loader() {
   const getPosts = await posts.getPosts();
-  console.log(getPosts);
   return { getPosts };
 }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, useActionData } from "react-router-dom";
+import { Form } from "react-router-dom";
 import { posts } from "../posts";
 
 export async function action() {

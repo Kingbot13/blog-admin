@@ -5,7 +5,6 @@ export const posts = (() => {
     try {
       const results = await fetch(`${server}/api/posts`, { mode: "cors" });
       const data = results.json() ?? [];
-      console.log(data);
       return data;
     } catch (err) {
       console.error(err);
@@ -16,10 +15,15 @@ export const posts = (() => {
     try {
       const form = document.getElementById("sign-up-form");
       const formData = new FormData(form);
-      console.log(formData);
+      console.log([...formData]);
+      const formDataObj = Object.fromEntries(formData.entries());
+      const formDataJSON = JSON.stringify(formDataObj);
+      console.log(formDataJSON);
       const res = await fetch(`${server}/api/sign-in`, {
         method: "post",
-        body: formData,
+        headers: {'Content-Type': 'application/JSON'},
+        body: formDataJSON,
+        mode: 'cors'
       });
     } catch (err) {
       console.error(err);
