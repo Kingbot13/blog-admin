@@ -1,9 +1,10 @@
 import React from "react";
 import { posts } from "../posts";
+import { Form } from "react-router-dom";
 
 export const PostForm = () => {
   return (
-    <form method="post" action={`${posts.server}/api/posts`}>
+    <Form method="post" action={`${posts.server}/api/posts`}>
       <label htmlFor="title">
         <input type="text" id="title" name="title" />
       </label>
@@ -14,6 +15,6 @@ export const PostForm = () => {
         <input type="checkbox" id="publish" name="publish" />
       </label>
       <button>Submit</button>
-    </form>
+    </Form>
   );
 };
