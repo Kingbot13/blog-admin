@@ -1,6 +1,7 @@
 import React from "react";
 import { Form } from "react-router-dom";
 import { posts } from "../posts";
+import "../styles/SignUp.module.css";
 
 export async function action() {
   await posts.createUser();

@@ -21,10 +21,15 @@ export const posts = (() => {
       console.log(formDataJSON);
       const res = await fetch(`${server}/api/sign-in`, {
         method: "post",
-        headers: {'Content-Type': 'application/JSON'},
+        headers: { "Content-Type": "application/JSON" },
         body: formDataJSON,
-        mode: 'cors'
+        mode: "cors",
       });
+      const data = await res.json();
+      if (!data) {
+        console.log(data.message);
+      }
+      return data;
     } catch (err) {
       console.error(err);
     }
