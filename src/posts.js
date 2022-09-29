@@ -10,30 +10,41 @@ export const posts = (() => {
       console.error(err);
     }
   };
+  // convert FormData to json
+  const _formatData = async (url, form) => {
+    const formData = new FormData(form);
+    const formDataObj = Object.fromEntries(formData.entries());
+    const formDataJSON = JSON.stringify(formDataObj);
+    const res = await fetch(url, {
+      method: "post",
+      headers: { "Content-Type": "application/JSON" },
+      body: formDataJSON,
+      mode: "cors",
+    });
+    const data = await res.json();
+    if (!data) {
+      console.log(data.message);
+    }
+    return data;
+  };
 
   const createUser = async () => {
     try {
       const form = document.getElementById("sign-up-form");
-      const formData = new FormData(form);
-      console.log([...formData]);
-      const formDataObj = Object.fromEntries(formData.entries());
-      const formDataJSON = JSON.stringify(formDataObj);
-      console.log(formDataJSON);
-      const res = await fetch(`${server}/api/sign-in`, {
-        method: "post",
-        headers: { "Content-Type": "application/JSON" },
-        body: formDataJSON,
-        mode: "cors",
-      });
-      const data = await res.json();
-      if (!data) {
-        console.log(data.message);
-      }
-      return data;
+      await _formatData(`${server}/api/sign-in`, form);
     } catch (err) {
       console.error(err);
     }
   };
 
-  return { getPosts, server, createUser };
+  const logIn = async () => {
+    try {
+      const form = document.getElementById("log-in-form");
+      await _formatData(`${server}/api/log-in`, form);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  return { getPosts, server, createUser, logIn };
 })();

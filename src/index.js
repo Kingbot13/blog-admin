@@ -4,7 +4,7 @@ import "./index.css";
 import App, { loader as rootLoader } from "./App";
 import { SignUp, action as signUpAction } from "./routes/SignUp";
 import { PostForm } from "./routes/PostForm";
-import { LogIn } from "./routes/LogIn";
+import { LogIn, action as logInAction } from "./routes/LogIn";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 
@@ -26,6 +26,7 @@ const router = createBrowserRouter([
       {
         path: "/log-in",
         element: <LogIn />,
+        action: logInAction,
       },
     ],
   },
