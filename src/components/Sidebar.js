@@ -6,8 +6,8 @@ export const Sidebar = ({ posts }) => {
     <ul>
       {posts.length ? (
         posts.map((post) => (
-          <li>
-            <Link to={post.url}></Link>
+          <li key={post._id}>
+            <Link to={`/posts/${post._id}`}>{post.title}</Link>
           </li>
         ))
       ) : (

@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <Sidebar posts={getPosts} />
+      <Sidebar posts={getPosts.posts} />
       <Outlet />
     </div>
   );
