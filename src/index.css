@@ -1,5 +1,6 @@
 :root{
-  --primary: #845EC2
+  --primary: #845EC2;
+  --sidebar-border: #B39CD0;
 }
 
 body {

@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styles from '../styles/Sidebar.module.css';
 
 export const Sidebar = ({ posts }) => {
   return (
-    <ul>
+    <ul className={styles.ul}>
       {posts.length ? (
         posts.map((post) => (
           <li key={post._id}>
