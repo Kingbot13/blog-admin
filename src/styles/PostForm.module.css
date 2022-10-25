@@ -1,0 +1,28 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2/6;
+    grid-row: 2/6;
+    min-height: 400px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form input {
+    min-height: 25px;
+    min-width: 200px;
+    justify-self: center;
+    margin-left: 8px;
+}
+
+.form input[name='content'] {
+    min-height: 400px;
+    min-width: 50vw;
+}
+
+.form button {
+    max-width: 100px;
+    background-color: var(--primary-button);
+    border: 1px solid;
+    font-size: 1.5rem;
+}
